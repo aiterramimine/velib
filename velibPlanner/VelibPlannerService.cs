@@ -12,11 +12,12 @@ namespace velibPlanner
     public class VelibPlannerService : IVelibPlannerService
     {
         private XmlDocument velibChart;
+        private List<VelibStation> velibStations; 
 
         public Route ComputeRoute(Location current, Location destination)
         {
-            Console.WriteLine("Serice called successfully");
-            return new Route(1.55);
+            refreshVelibStations();
+            return new Route(velibStations.Count);
         }
 
         /**
@@ -51,7 +52,7 @@ namespace velibPlanner
             return null;
         }
 
-        private List<VelibStation> getVelibStations()
+        private void refreshVelibStations()
         {
             refreshVelibChart();
 
@@ -75,7 +76,7 @@ namespace velibPlanner
 
 
             }
-            return ret;
+            velibStations = ret;
         }
 
         private VelibStation getNearestVelibStationWithAvailableVehicle()
