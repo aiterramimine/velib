@@ -15,7 +15,8 @@ namespace velibPlanner
 
         public Route ComputeRoute(Location current, Location destination)
         {
-            return null;
+            Console.WriteLine("Serice called successfully");
+            return new Route(1.55);
         }
 
         /**
