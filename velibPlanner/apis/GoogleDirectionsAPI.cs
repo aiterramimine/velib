@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using velibPlanner.entities;
 
 namespace velibPlanner
 {
@@ -72,11 +73,12 @@ namespace velibPlanner
          * Returns a new route and updates the last requested route by sending request to the Google maps direction API with the current and destination 
          * location and transport mode as parameters.
          */
-        public XmlDocument requestRoute(Location current, Location destination, String transportMode)
+        private XmlDocument requestRoute(Location current, Location destination, String transportMode)
         {
             WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/xml" +
                 "?origin=" + current.getLatitude() + "," + current.getLongitude() +
                 "&destination=" + destination.getLatitude() + "," + destination.getLongitude() +
+                "&mode=" + transportMode +
                 "&key=" + GOOGLE_MAPS_API_KEY
                 );
             WebResponse response = request.GetResponse();
@@ -95,6 +97,47 @@ namespace velibPlanner
 
             return route;
         }
+
+        public Route computeRoute(Location current, Location destination, String transportMode)
+        {
+            Route ret;
+            List<Segment> segements;
+            XmlDocument rawRoute = requestRoute(current, destination, transportMode);
+
+            return null;
+        
+        }
+
+        private List<Segment> generateSegments(XmlDocument rawRoute)
+        {
+            List<Segment> ret = new List<Segment>();
+
+            XmlNodeList steps = rawRoute.GetElementsByTagName("step");
+
+            for(int i = 0; i < steps.Count; i++)
+            {
+                XmlNode step = steps[i];
+
+                String startLocationLat = step.SelectNodes("descendant::start_location/lat")[0].Value;
+                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].Value;
+                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].Value;
+                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].Value;
+                String duration = step.SelectNodes("descendant::duration/value")[0].Value;
+                String distance = step.SelectNodes("descendant::distance/value")[0].Value;
+                String transportMode = step.SelectNodes("descendant::travel_mode")[0].Value;
+                String instructions = step.SelectNodes("descendant::html_instructions")[0].Value;
+
+                Location source = new Location(Double.Parse(startLocationLat), Double.Parse(destinationLocationLat));
+                Location destination = new Location(Double.Parse(destinationLocationLat), Double.Parse(destinationLocationLng));
+                double durationDbl = Double.Parse(duration);
+                double distanceDbl = Double.Parse(distance);
+
+                Segment s = new Segment(source, destination, durationDbl, distanceDbl, transportMode, instructions);
+                ret.Add(s);
+            }
+
+            return ret;
+        } 
 
     }
 }
