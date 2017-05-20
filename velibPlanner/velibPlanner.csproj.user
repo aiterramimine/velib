@@ -4,7 +4,7 @@
     <StartAction>Program</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
-    <StartAction>Program</StartAction>
+    <StartAction>Project</StartAction>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
