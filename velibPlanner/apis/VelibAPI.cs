@@ -23,7 +23,7 @@ namespace velibPlanner
         public VelibAPI()
         { }
 
-        private List<VelibStation> refreshAndGetVelibStations()
+        public List<VelibStation> requestVelibStations()
         {
             requestVelibChart();
 
