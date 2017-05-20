@@ -8,13 +8,16 @@ namespace velibPlanner
 {
     public class VelibStation
     {
+        /* The name of the station. */
+        private String name;
         /* The location of the station. */
         private Location location;
         /* Number of available vehicles in the station. */
         private int availableVehicles;
 
-        public VelibStation(Location location, int availableVehicles)
+        public VelibStation(String name, Location location, int availableVehicles)
         {
+            this.name = name;
             this.location = location;
             this.availableVehicles = availableVehicles;
         }

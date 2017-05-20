@@ -55,8 +55,26 @@ namespace velibPlanner
             refreshVelibChart();
 
             List<VelibStation> ret = new List<VelibStation>();
+            XmlNodeList markers = velibChart.GetElementsByTagName("marker");
+            for(int i = 0; i < markers.Count; i++)
+            {
+                String name = markers[i].Attributes["name"].Value;
 
-            return null;
+                // Debug
+                Console.WriteLine(name);
+
+                double latitude = Convert.ToDouble(markers[i].Attributes["lat"].Value);
+                double longitude = Convert.ToDouble(markers[i].Attributes["lng"].Value);
+                Location location = new Location(latitude, longitude);
+
+                // TODO: number of available vehicles mock.
+                VelibStation station = new VelibStation(name, location, 1);
+
+                ret.Add(station);
+
+
+            }
+            return ret;
         }
 
         private VelibStation getNearestVelibStationWithAvailableVehicle()
