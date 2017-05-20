@@ -1,0 +1,9 @@
+<publishData>
+  <publishTarget publishUrl="C:\Users\pcgamercasa\Desktop\challengeApp\">
+    <file relUrl="velibPlanner.VelibPlannerService.svc" publishTime="05/20/2017 11:07:51" />
+    <file relUrl="bin/velibPlanner.dll.config" publishTime="05/20/2017 11:01:13" />
+    <file relUrl="bin/velibPlanner.pdb" publishTime="05/20/2017 11:06:10" />
+    <file relUrl="Web.config" publishTime="05/20/2017 11:01:13" />
+    <file relUrl="bin/velibPlanner.dll" publishTime="05/20/2017 11:06:10" />
+  </publishTarget>
+</publishData>
