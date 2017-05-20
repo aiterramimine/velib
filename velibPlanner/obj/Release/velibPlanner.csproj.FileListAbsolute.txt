@@ -1,0 +1,5 @@
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\bin\Release\velibPlanner.dll.config
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\bin\Release\velibPlanner.dll
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\bin\Release\velibPlanner.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\obj\Release\velibPlanner.dll
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\obj\Release\velibPlanner.pdb

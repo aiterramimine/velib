@@ -21,7 +21,7 @@ namespace velibPlanner
         public Route ComputeRoute(Location current, Location destination)
         {
             //refreshVelibStations();
-            return new Route(velibStations.Count, null, null);
+            return new Route(velibStations.Count, null);
         }
 
     }

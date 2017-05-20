@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="VelibPlannerApp.Service1" CodeBehind="Service1.svc.cs" %>

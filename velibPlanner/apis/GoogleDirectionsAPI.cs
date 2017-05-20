@@ -11,6 +11,14 @@ namespace velibPlanner
 {
     public class GoogleDirectionsAPI
     {
+        /* Latitude and longitude values of two locations only for testing purposes. */
+        public static double GALERIE_LAFAYETTE_LATITUDE = 43.698874;
+        public static double GALERIE_LAFAYETTE_LONGITUDE = 7.269778;
+        public static double EGLISE_STNICOLAS_LATITUDE = 43.699496;
+        public static double EGLISE_STNICOLAS_LONGITUDE = 7.267542;
+
+        public static String exempleRequest = "https://maps.googleapis.com/maps/api/directions/xml?origin=43.698874,7.269778&destination=43.699496,7.267542&key=AIzaSyBmXF6HgaLoSivK5fHS_p0dS - emZQ5t0HA";
+
         /* The key of the google maps API. */
         private static String GOOGLE_MAPS_API_KEY = "AIzaSyBmXF6HgaLoSivK5fHS_p0dS - emZQ5t0HA";
         /* Google maps request URL parameter for "bicycling" mode. */

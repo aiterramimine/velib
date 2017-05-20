@@ -1,0 +1,6 @@
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\bin\VelibPlannerApp.dll.config
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\bin\VelibPlannerApp.dll
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\bin\VelibPlannerApp.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\obj\Debug\VelibPlannerApp.csprojResolveAssemblyReference.cache
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\obj\Debug\VelibPlannerApp.dll
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\VelibPlannerApp\obj\Debug\VelibPlannerApp.pdb

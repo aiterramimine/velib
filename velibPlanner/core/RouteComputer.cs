@@ -61,6 +61,9 @@ namespace velibPlanner.core
             return nearestStation;
         }
 
+        /**
+         * Computes the distance between two locations.
+         */
         private double computeDistance(Location l1, Location l2)
         {
             return Math.Sqrt(Math.Pow(l1.getLatitude() - l2.getLatitude(), 2) + Math.Pow(l1.getLongitude() - l2.getLongitude(), 2));
