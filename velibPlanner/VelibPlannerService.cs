@@ -11,14 +11,16 @@ namespace velibPlanner
 {
     public class VelibPlannerService : IVelibPlannerService
     {
+
         private XmlDocument velibChart;
-        private List<VelibStation> velibStations; 
+        private List<VelibStation> velibStations;
 
         public Route ComputeRoute(Location current, Location destination)
         {
             refreshVelibStations();
-            return new Route(velibStations.Count);
+            return new Route(velibStations.Count, null, null);
         }
+
 
         /**
          * Gets the nearest location of the parameter location.
