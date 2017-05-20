@@ -67,7 +67,7 @@ namespace velibPlanner
         public XmlDocument requestRoute(Location current, Location destination, String transportMode)
         {
             
-            WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/json" +
+            WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/xml" +
                 "?origin=" + current.getLatitude() + "," + current.getLongitude() +
                 "&destination=" + destination.getLatitude() + "," + destination.getLongitude() +
                 "&key=" + GOOGLE_MAPS_API_KEY
