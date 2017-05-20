@@ -71,6 +71,7 @@ namespace velibPlanner
 
             reader.Close();
             response.Close();
+
             return ret;
         }
     }

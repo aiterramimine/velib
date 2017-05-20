@@ -86,5 +86,11 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\velibPlanner\velibPlanner.csproj">
+      <Project>{32d3504e-6895-420c-bed2-2d373d197e43}</Project>
+      <Name>velibPlanner</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

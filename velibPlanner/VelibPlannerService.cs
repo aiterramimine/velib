@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using velibPlanner.core;
 
 namespace velibPlanner
 {
@@ -14,10 +15,12 @@ namespace velibPlanner
 
         private XmlDocument velibChart;
         private List<VelibStation> velibStations;
+        /* Initialize the route computer. */
+        private RouteComputer routeComputer = new RouteComputer(new GoogleDirectionsAPI(), new VelibAPI());
 
         public Route ComputeRoute(Location current, Location destination)
         {
-            refreshVelibStations();
+            //refreshVelibStations();
             return new Route(velibStations.Count, null, null);
         }
 
@@ -54,32 +57,6 @@ namespace velibPlanner
             return null;
         }
 
-        private void refreshVelibStations()
-        {
-            refreshVelibChart();
-
-            List<VelibStation> ret = new List<VelibStation>();
-            XmlNodeList markers = velibChart.GetElementsByTagName("marker");
-            for(int i = 0; i < markers.Count; i++)
-            {
-                String name = markers[i].Attributes["name"].Value;
-
-                // Debug
-                Console.WriteLine(name);
-
-                double latitude = Convert.ToDouble(markers[i].Attributes["lat"].Value);
-                double longitude = Convert.ToDouble(markers[i].Attributes["lng"].Value);
-                Location location = new Location(latitude, longitude);
-
-                // TODO: number of available vehicles mock.
-                VelibStation station = new VelibStation(name, location, 1);
-
-                ret.Add(station);
-
-
-            }
-            velibStations = ret;
-        }
 
         private VelibStation getNearestVelibStationWithAvailableVehicle()
         {
@@ -89,25 +66,6 @@ namespace velibPlanner
         private VelibStation getNearestVelibStation()
         {
             return null;
-        }
-
-        /**
-         * Returns the velib chart in form of an XML document requested from the velib web service.
-         */
-        private void refreshVelibChart()
-        {
-            WebRequest request = WebRequest.Create("http://www.velib.paris/service/carto");
-
-            WebResponse response = request.GetResponse();
-
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-
-            XmlDocument velibChart = new XmlDocument();
-            velibChart.LoadXml(responseFromServer);
-
-            this.velibChart = velibChart;
         }
     }
 }

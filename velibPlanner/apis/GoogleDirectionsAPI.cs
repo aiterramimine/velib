@@ -24,7 +24,7 @@ namespace velibPlanner
          * Constructor.
          */
         public GoogleDirectionsAPI()
-        {}
+        { }
 
         /**
          * Returns a list of all the locations of the requested route.
@@ -66,23 +66,24 @@ namespace velibPlanner
          */
         public XmlDocument requestRoute(Location current, Location destination, String transportMode)
         {
-            
             WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/xml" +
                 "?origin=" + current.getLatitude() + "," + current.getLongitude() +
                 "&destination=" + destination.getLatitude() + "," + destination.getLongitude() +
                 "&key=" + GOOGLE_MAPS_API_KEY
                 );
-
             WebResponse response = request.GetResponse();
+
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
-
             String responseBody = reader.ReadToEnd();
 
             XmlDocument route = new XmlDocument();
             route.LoadXml(responseBody);
 
             lastRequestedRoute = route;
+
+            reader.Close();
+            response.Close();
 
             return route;
         }

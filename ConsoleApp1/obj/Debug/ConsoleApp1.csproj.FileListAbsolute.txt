@@ -4,3 +4,6 @@ C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\bin\Debug\ConsoleApp
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\obj\Debug\ConsoleApp1.csprojResolveAssemblyReference.cache
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\bin\Debug\velibPlanner.dll
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\bin\Debug\velibPlanner.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\ConsoleApp1\bin\Debug\velibPlanner.dll.config
