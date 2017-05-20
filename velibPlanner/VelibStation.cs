@@ -10,6 +10,8 @@ namespace velibPlanner
     [DataContract]
     public class VelibStation
     {
+        /* The key of the google maps API. */
+        private static String GOOGLE_MAPS_API_KEY = "AIzaSyBmXF6HgaLoSivK5fHS_p0dS - emZQ5t0HA";
         /* The name of the station. */
         [DataMember]
         private String name;
