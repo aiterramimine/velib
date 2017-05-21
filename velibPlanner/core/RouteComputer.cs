@@ -72,15 +72,15 @@ namespace velibPlanner.core
 
         public Route computeRoute(Location current, Location destination)
         {
-            //return googleDirectionsAPI.computeRoute(current, destination, "walking");
-            List<Segment> segs = new List<Segment>();
+            return googleDirectionsAPI.computeRoute(current, destination, "walking");
+            /*List<Segment> segs = new List<Segment>();
             Location source = new Location(1, 2);
             Location d = new Location(4, 5);
 
             Segment s = new Segment(source, d, 1.22, 5, "walking", "instructs");
             segs.Add(s);
 
-            return new Route(1, segs);
+            return new Route(1, segs);*/
         }
     }
 }

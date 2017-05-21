@@ -29,12 +29,15 @@ namespace Client
             destination.latitude = EGLISE_STNICOLAS_LATITUDE;
             destination.longitude = EGLISE_STNICOLAS_LONGITUDE;
 
-            /* VelibPlannerServiceClient client = new VelibPlannerServiceClient();
+            VelibPlannerServiceClient client = new VelibPlannerServiceClient();
             Route r = client.ComputeRoute(source, destination);
-            Console.WriteLine(r.segments[0].instructions); */
+            Console.WriteLine(r.segments[0].instructions);
 
-            XmlDocument doc = requestRoute(source, destination, "walking");
-            generateSegments(doc);
+            /* XmlDocument doc = requestRoute(source, destination, "walking");
+            List<Segment> segs = generateSegments(doc);
+            Console.WriteLine(segs.Count);
+            Console.WriteLine(segs[0].instructions);*/
+
         }
 
         public static List<Segment> generateSegments(XmlDocument rawRoute)
@@ -46,14 +49,14 @@ namespace Client
             {
                 XmlNode step = steps[i];
 
-                String startLocationLat = step.SelectNodes("descendant::start_location/lat")[0].Value;
-                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].Value;
-                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].Value;
-                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].Value;
-                String duration = step.SelectNodes("descendant::duration/value")[0].Value;
-                String distance = step.SelectNodes("descendant::distance/value")[0].Value;
-                String transportMode = step.SelectNodes("descendant::travel_mode")[0].Value;
-                String instructions = step.SelectNodes("descendant::html_instructions")[0].Value;
+                String startLocationLat = step.SelectNodes("descendant::start_location/lng")[0].InnerText;
+                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].InnerText;
+                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].InnerText;
+                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].InnerText;
+                String duration = step.SelectNodes("descendant::duration/value")[0].InnerText;
+                String distance = step.SelectNodes("descendant::distance/value")[0].InnerText;
+                String transportMode = step.SelectNodes("descendant::travel_mode")[0].InnerText;
+                String instructions = step.SelectNodes("descendant::html_instructions")[0].InnerText;
 
                 Location source = new Location();
                 source.latitude = Double.Parse(startLocationLat);

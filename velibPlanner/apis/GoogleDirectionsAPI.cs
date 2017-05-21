@@ -118,14 +118,14 @@ namespace velibPlanner
             {
                 XmlNode step = steps[i];
 
-                String startLocationLat = step.SelectNodes("descendant::start_location/lat")[0].Value;
-                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].Value;
-                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].Value;
-                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].Value;
-                String duration = step.SelectNodes("descendant::duration/value")[0].Value;
-                String distance = step.SelectNodes("descendant::distance/value")[0].Value;
-                String transportMode = step.SelectNodes("descendant::travel_mode")[0].Value;
-                String instructions = step.SelectNodes("descendant::html_instructions")[0].Value;
+                String startLocationLat = step.SelectNodes("descendant::start_location/lat")[0].InnerText;
+                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].InnerText;
+                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].InnerText;
+                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].InnerText;
+                String duration = step.SelectNodes("descendant::duration/value")[0].InnerText;
+                String distance = step.SelectNodes("descendant::distance/value")[0].InnerText;
+                String transportMode = step.SelectNodes("descendant::travel_mode")[0].InnerText;
+                String instructions = step.SelectNodes("descendant::html_instructions")[0].InnerText;
 
                 Location source = new Location(Double.Parse(startLocationLat), Double.Parse(destinationLocationLat));
                 Location destination = new Location(Double.Parse(destinationLocationLat), Double.Parse(destinationLocationLng));
