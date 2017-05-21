@@ -82,5 +82,21 @@ namespace velibPlanner.core
 
             return new Route(1, segs);*/
         }
+
+        /**
+         * Computes and returns the route from the source to the destination by walking and cycling.
+         */
+        public Route computeRouteWalkingAndBicycle(Location current, Location destination)
+        {
+            return null;
+        }
+
+        /**
+         * Computes and returns the route from the source to the destination by walking only.
+         */
+        public Route computeRouteWalkingOnly(Location current, Location destination)
+        {
+            return googleDirectionsAPI.computeRoute(current, destination, "walking");
+        }
     }
 }

@@ -26,8 +26,8 @@ namespace velibPlanner
         private static String CYCLING_MODE = "bicycling";
         /* Google maps request URL parameter for "walking" mode. */
         private static String WALKING_MODE = "walking";
-        /* The last requested route from the service. */
-        private XmlDocument lastRequestedRoute;
+        /* The last requested chart from the service. This chart represents the route from the current location to the destination. */
+        private XmlDocument lastRequestedChart;
 
         /**
          * Constructor.
@@ -58,7 +58,7 @@ namespace velibPlanner
          */
         public List<Location> getLocations()
         {
-            return getLocations(lastRequestedRoute);
+            return getLocations(lastRequestedChart);
         }
 
         /**
@@ -66,14 +66,14 @@ namespace velibPlanner
          */
         public List<int> getDurations()
         {
-            return getDurations(lastRequestedRoute);
+            return getDurations(lastRequestedChart);
         }
 
         /**
          * Returns a new route and updates the last requested route by sending request to the Google maps direction API with the current and destination 
          * location and transport mode as parameters.
          */
-        private XmlDocument requestRoute(Location current, Location destination, String transportMode)
+        private XmlDocument requestChart(Location current, Location destination, String transportMode)
         {
             WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/xml" +
                 "?origin=" + current.getLatitude() + "," + current.getLongitude() +
@@ -87,21 +87,21 @@ namespace velibPlanner
             StreamReader reader = new StreamReader(dataStream);
             String responseBody = reader.ReadToEnd();
 
-            XmlDocument route = new XmlDocument();
-            route.LoadXml(responseBody);
+            XmlDocument chart = new XmlDocument();
+            chart.LoadXml(responseBody);
 
-            lastRequestedRoute = route;
+            lastRequestedChart = chart;
 
             reader.Close();
             response.Close();
 
-            return route;
+            return chart;
         }
 
         public Route computeRoute(Location current, Location destination, String transportMode)
         {
             Route ret;
-            XmlDocument rawRoute = requestRoute(current, destination, transportMode);
+            XmlDocument rawRoute = requestChart(current, destination, transportMode);
 
             ret = new Route(generateSegments(rawRoute));
 
@@ -137,7 +137,14 @@ namespace velibPlanner
             }
 
             return ret;
-        } 
+        }
+
+        private List<Segment> generateSegments(Location current, Location destination, String transportMode)
+        {
+            List<Segment> ret = new List<Segment>();
+            XmlDocument rawRoute = requestChart(current, destination, transportMode);
+            return generateSegments(rawRoute);
+        }
 
     }
 }
