@@ -49,74 +49,24 @@ namespace Client
             
             Route r = client.ComputeRoute(eastSideCoffee, gareDeLEst);
             printRoute(r);
-            
 
-        }
+            Console.WriteLine("--- Deuxième démonstration qui consistes à se déplacer de Food hall à fnacParisGareEst. ---");
+            Console.WriteLine("");
 
-        public static List<Segment> generateSegments(XmlDocument rawRoute)
-        {
-            List<Segment> ret = new List<Segment>();
-            XmlNodeList steps = rawRoute.GetElementsByTagName("step");
+            // Food hall                    48.876614, 2.359375
+            // starbucks     48.877453, 2.358539
+            Location foodHall = new Location();
+            eastSideCoffee.latitude = 48.876614;
+            eastSideCoffee.longitude = 2.359375;
 
-            for (int i = 0; i < steps.Count; i++)
-            {
-                XmlNode step = steps[i];
+            Location fnacParisGareEst = new Location();
+            fnacParisGareEst.latitude = 48.877453;
+            fnacParisGareEst.longitude = 2.358539;
 
-                String startLocationLat = step.SelectNodes("descendant::start_location/lng")[0].InnerText;
-                String startLocationLng = step.SelectNodes("descendant::start_location/lng")[0].InnerText;
-                String destinationLocationLat = step.SelectNodes("descendant::end_location/lat")[0].InnerText;
-                String destinationLocationLng = step.SelectNodes("descendant::end_location/lng")[0].InnerText;
-                String duration = step.SelectNodes("descendant::duration/value")[0].InnerText;
-                String distance = step.SelectNodes("descendant::distance/value")[0].InnerText;
-                String transportMode = step.SelectNodes("descendant::travel_mode")[0].InnerText;
-                String instructions = step.SelectNodes("descendant::html_instructions")[0].InnerText;
+            Route r2 = client.ComputeRoute(foodHall, fnacParisGareEst);
+            printRoute(r2);
 
-                Location source = new Location();
-                source.latitude = Double.Parse(startLocationLat);
-                source.longitude = Double.Parse(destinationLocationLat);
 
-                Location destination = new Location();
-                destination.latitude = Double.Parse(destinationLocationLat);
-                destination.longitude = Double.Parse(destinationLocationLng);
-
-                double durationDbl = Double.Parse(duration);
-                double distanceDbl = Double.Parse(distance);
-
-                Segment s = new Segment();
-                s.source = source;
-                s.destination = destination;
-                s.duration = durationDbl;
-                s.distance = distanceDbl;
-                s.transportMode = transportMode;
-                s.instructions = instructions;
-
-                ret.Add(s);
-            }
-
-            return ret;
-        }
-
-        public static XmlDocument requestRoute(Location current, Location destination, String transportMode)
-        {
-            WebRequest request = WebRequest.Create("https://maps.googleapis.com/maps/api/directions/xml" +
-                "?origin=" + current.latitude + "," + current.longitude +
-                "&destination=" + destination.latitude + "," + destination.longitude +
-                "&mode=" + transportMode +
-                "&key=" + GOOGLE_MAPS_API_KEY
-                );
-            WebResponse response = request.GetResponse();
-
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            String responseBody = reader.ReadToEnd();
-
-            XmlDocument route = new XmlDocument();
-            route.LoadXml(responseBody);
-
-            reader.Close();
-            response.Close();
-
-            return route;
         }
 
         public static void printRoute(Route r)
