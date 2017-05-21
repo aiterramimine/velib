@@ -1,0 +1,6 @@
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\bin\Release\Client.exe.config
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\bin\Release\Client.exe
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\bin\Release\Client.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\obj\Release\Client.csprojResolveAssemblyReference.cache
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\obj\Release\Client.exe
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\Client\obj\Release\Client.pdb

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a6e876d-ecca-4dde-96fa-5424da82e7dc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/velibPlanner/VelibPlannerService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="4d64b80b-9918-435b-8762-ab417dd3a464" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="714ce7ac-178f-4e53-97c8-eabe6e4f1567" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="1899a18d-0b75-41e4-8608-8a8e7b7251e5" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="velibPlanner.xsd" MetadataType="Schema" ID="cd508125-02b2-49fd-ba67-ac05737a9f90" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="a9fb68fe-9372-4f3b-b3fc-9eaddaf64249" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="velibPlanner.entities.xsd" MetadataType="Schema" ID="9a37d73e-7aa0-4ce7-b2c7-a815d6eaf220" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
