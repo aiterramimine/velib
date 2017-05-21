@@ -20,8 +20,7 @@ namespace velibPlanner
 
         public Route ComputeRoute(Location current, Location destination)
         {
-            //refreshVelibStations();
-            return new Route(velibStations.Count, null);
+            return routeComputer.computeRoute(current, destination);
         }
 
     }

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="apis\GoogleDirectionsAPI.cs" />
     <Compile Include="core\RouteComputer.cs" />
+    <Compile Include="entities\Segment.cs" />
     <Compile Include="IVelibPlannerService.cs" />
     <Compile Include="entities\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

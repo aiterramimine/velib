@@ -68,5 +68,10 @@ namespace velibPlanner.core
         {
             return Math.Sqrt(Math.Pow(l1.getLatitude() - l2.getLatitude(), 2) + Math.Pow(l1.getLongitude() - l2.getLongitude(), 2));
         }
+
+        public Route computeRoute(Location current, Location destination)
+        {
+            return googleDirectionsAPI.computeRoute(current, destination, "walking");
+        }
     }
 }

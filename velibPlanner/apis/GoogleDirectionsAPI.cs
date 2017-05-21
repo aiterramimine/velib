@@ -101,17 +101,17 @@ namespace velibPlanner
         public Route computeRoute(Location current, Location destination, String transportMode)
         {
             Route ret;
-            List<Segment> segements;
             XmlDocument rawRoute = requestRoute(current, destination, transportMode);
 
-            return null;
+            ret = new Route(1.33, generateSegments(rawRoute));
+
+            return ret;
         
         }
 
         private List<Segment> generateSegments(XmlDocument rawRoute)
         {
             List<Segment> ret = new List<Segment>();
-
             XmlNodeList steps = rawRoute.GetElementsByTagName("step");
 
             for(int i = 0; i < steps.Count; i++)

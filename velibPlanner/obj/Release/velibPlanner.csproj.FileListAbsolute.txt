@@ -3,3 +3,4 @@ C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\bin\Release\velibPl
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\bin\Release\velibPlanner.pdb
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\obj\Release\velibPlanner.dll
 C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\obj\Release\velibPlanner.pdb
+C:\Users\pcgamercasa\Desktop\velibPlanner\velib\velibPlanner\obj\Release\velibPlanner.csprojResolveAssemblyReference.cache
