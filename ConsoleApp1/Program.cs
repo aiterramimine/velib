@@ -8,106 +8,20 @@ using System.Threading.Tasks;
 // Google maps direction API key:  AIzaSyBmXF6HgaLoSivK5fHS_p0dS-emZQ5t0HA 
 namespace ConsoleApp1
 {
-    /*class Program
+    class Program
     {
+        public static double GALERIE_LAFAYETTE_LATITUDE = 43.698874;
+        public static double GALERIE_LAFAYETTE_LONGITUDE = 7.269778;
+        public static double EGLISE_STNICOLAS_LATITUDE = 43.699496;
+        public static double EGLISE_STNICOLAS_LONGITUDE = 7.267542;
+
         static void Main(string[] args)
         {
+            Mock mock = new Mock();
+            Location source = new Location();
+            Location destination = new Location();
             VelibPlannerServiceClient client = new VelibPlannerServiceClient();
             Console.WriteLine(client.ComputeRoute(null, null).duration);
-        }
-    } */
-
-    public class MainApp
-    {
-        public static void Main()
-        {
-            Director d = new Director();
-            Builder b1 = new ConcreteBuilder1();
-            Builder b2 = new ConcreteBuilder2();
-
-            d.Construct(b1);
-            Product p1 = b1.GetResult();
-            p1.Show();
-
-            d.Construct(b2);
-            Product p2 = b2.GetResult();
-            p2.Show();
-
-            Console.ReadKey();
-
-        }
-    }
-
-    class Director
-    {
-        public void Construct(Builder builder)
-        {
-            builder.BuildPartA();
-            builder.BuildPartB();
-        }
-    }
-
-    abstract class Builder
-    {
-        public abstract void BuildPartA();
-        public abstract void BuildPartB();
-        public abstract Product GetResult();
-    }
-
-    class ConcreteBuilder1 : Builder
-    {
-        private Product product = new Product();
-
-        public override void BuildPartA()
-        {
-            product.Add("PartA");
-        }
-
-        public override void BuildPartB()
-        {
-            product.Add("PartB");
-        }
-
-        public override Product GetResult()
-        {
-            return product;
-        }
-    }
-
-    class ConcreteBuilder2 : Builder
-    {
-        private Product product = new Product();
-
-        public override void BuildPartA()
-        {
-            product.Add("PartX");
-        }
-
-        public override void BuildPartB()
-        {
-            product.Add("PartY");
-        }
-
-        public override Product GetResult()
-        {
-            return product;
-        }
-    }
-
-    class Product
-    {
-        private List<String> parts = new List<String>();
-
-        public void Add(String part)
-        {
-            parts.Add(part);
-        }
-
-        public void Show()
-        {
-            Console.WriteLine("\nProduct parts ------ ");
-            foreach (string part in parts)
-                Console.WriteLine(part);
         }
     }
 }

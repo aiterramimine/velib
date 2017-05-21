@@ -26,6 +26,8 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d4df9de9-7b09-4e40-aa0c-c66cda8754fd" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="baea3dcd-b428-4d7e-95c0-035cbec633aa" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
     <MetadataFile FileName="velibPlanner.xsd" MetadataType="Schema" ID="51e0cd98-346f-474e-978e-3b4c0edd8ced" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="b0263471-3109-4e60-8d22-c7da7a0aaf56" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
+    <MetadataFile FileName="velibPlanner.entities.xsd" MetadataType="Schema" ID="4b8f7cb7-4bf1-4e3e-80ed-0b62e3af09a1" SourceId="1" SourceUrl="http://localhost:8733/velibPlanner/VelibPlannerService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

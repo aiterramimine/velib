@@ -51,6 +51,7 @@
     <Compile Include="entities\Segment.cs" />
     <Compile Include="IVelibPlannerService.cs" />
     <Compile Include="entities\Location.cs" />
+    <Compile Include="Mock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="entities\Route.cs" />
     <Compile Include="apis\VelibAPI.cs" />

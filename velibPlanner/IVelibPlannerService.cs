@@ -11,6 +11,9 @@ namespace velibPlanner
     public interface IVelibPlannerService
     {
         [OperationContract]
-        Route ComputeRoute(Location current, Location destination);
+        Route ComputeRoute(Location current, Location destination, Mock m);
+
+        [OperationContract]
+        Route anotherRoute();
     }
 }
