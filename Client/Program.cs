@@ -31,7 +31,8 @@ namespace Client
 
             VelibPlannerServiceClient client = new VelibPlannerServiceClient();
             Route r = client.ComputeRoute(source, destination);
-            Console.WriteLine(r.segments[0].instructions);
+            printRoute(r);
+            //Console.WriteLine(r.segments[0].instructions);
 
             /* XmlDocument doc = requestRoute(source, destination, "walking");
             List<Segment> segs = generateSegments(doc);
@@ -104,6 +105,28 @@ namespace Client
             response.Close();
 
             return route;
+        }
+
+        public static void printRoute(Route r)
+        {
+            for (int i = 0; i <r.segments.Length; i++)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Step---- ");
+                printSegment(r.segments[i]);
+            }
+
+        }
+
+        public static void printSegment(Segment s)
+        {
+            /* Console.WriteLine("* Source: " + s.source.latitude + "," + s.source.longitude);
+            Console.WriteLine("* Destination: " + s.destination.latitude + "," + s.destination.longitude);*/
+            Console.WriteLine("* Mode: " + s.transportMode);
+            Console.WriteLine("* Instrucitons: " + s.instructions);
+            Console.WriteLine("* Duration: " + s.duration + " sec");
+            Console.WriteLine("* Distance: " + s.distance + " m");
+
         }
     }
 }
