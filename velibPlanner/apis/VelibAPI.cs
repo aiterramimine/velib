@@ -39,17 +39,17 @@ namespace velibPlanner
                 Location location = new Location(latitude, longitude);
 
 
-                XmlDocument stationChart = requestStationChart(stationNb);
-                int availableVehicles = getAvailableVehicles(stationChart);
-                int freeSpots = getFreeSpots(stationChart);
+               // XmlDocument stationChart = requestStationChart(stationNb);
+                /*int availableVehicles = getAvailableVehicles(stationChart);
+                int freeSpots = getFreeSpots(stationChart);*/
 
-                // TODO: number of available vehicles mock.
-                VelibStation station = new VelibStation(name, location, availableVehicles, freeSpots);
+               VelibStation station = new VelibStation(name, location, 0, 0);
 
-                ret.Add(station);
+               ret.Add(station);
             }
 
-            lastRequestedVelibStations = ret;
+            //ret.Add(new VelibStation("some", new Location(0, 0), 0, 0));
+            //lastRequestedVelibStations = ret;
 
             return ret;
         }
@@ -101,17 +101,17 @@ namespace velibPlanner
          */
         private XmlDocument requestStationChart(int stationNumber)
         {
-            WebRequest request = WebRequest.Create("http://www.velib.paris/service/stationdetails/" + stationNumber);
+            WebRequest request = WebRequest.Create("http://www.velib.paris/service/stationdetails/" + 906);
             WebResponse response = request.GetResponse();
 
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             String responseBody = reader.ReadToEnd();
-
+            /*
             XmlDocument ret = new XmlDocument();
-            ret.LoadXml(responseBody);
+            ret.LoadXml(responseBody);*/
 
-            return ret;
+            return null;
         }
     }
 }

@@ -31,8 +31,11 @@ namespace Client
             destination.longitude = EGLISE_STNICOLAS_LONGITUDE;
 
             VelibPlannerServiceClient client = new VelibPlannerServiceClient();
-            Route r = client.ComputeRoute(source, destination);
-            printRoute(r);
+            /*Route r = client.ComputeRoute(source, destination);
+            printRoute(r);*/
+            //Console.WriteLine(client.getVelibStations().Length);
+            printVelibStations(client.getVelibStations());
+
             //Console.WriteLine(r.segments[0].instructions);
 
             /* XmlDocument doc = requestRoute(source, destination, "walking");

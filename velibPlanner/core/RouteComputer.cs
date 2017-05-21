@@ -101,7 +101,10 @@ namespace velibPlanner.core
 
         public List<VelibStation> getVelibStations()
         {
+            List<VelibStation> stations = new List<VelibStation>();
+            stations.Add(new VelibStation("name", new Location(0, 0), 0, 0));
             return velibAPI.requestVelibStations();
+            //return stations;
 
         }
     }
