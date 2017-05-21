@@ -24,10 +24,10 @@ namespace velibPlanner
         /**
          * Constructor.
          */
-        public Route(double duration, List<Segment> segments)
+        public Route(List<Segment> segments)
         {
             this.segments = segments;
-            this.duration = duration;
+            calculateDuration();
         }
 
         /**
@@ -36,6 +36,17 @@ namespace velibPlanner
         public double getDuration()
         {
             return duration;
+        }
+
+        private void calculateDuration()
+        {
+            double duration = 0;
+            for(int i = 0; i < segments.Count; i++)
+            {
+                duration += segments[i].duration;
+            }
+
+            this.duration = duration;
         }
     }
 }

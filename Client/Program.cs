@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -109,6 +110,7 @@ namespace Client
 
         public static void printRoute(Route r)
         {
+            Console.WriteLine("ROUTE - Total duration : " + r.duration + " sec");
             for (int i = 0; i <r.segments.Length; i++)
             {
                 Console.WriteLine("");
@@ -120,10 +122,16 @@ namespace Client
 
         public static void printSegment(Segment s)
         {
+            // We will convert the HTML to plain text.
+            String segmentInstructions = s.instructions;
+
+            Regex reg = new Regex("<[^>]+>", RegexOptions.IgnoreCase);
+            segmentInstructions = reg.Replace(segmentInstructions, "");
+            
             /* Console.WriteLine("* Source: " + s.source.latitude + "," + s.source.longitude);
             Console.WriteLine("* Destination: " + s.destination.latitude + "," + s.destination.longitude);*/
             Console.WriteLine("* Mode: " + s.transportMode);
-            Console.WriteLine("* Instrucitons: " + s.instructions);
+            Console.WriteLine("* Instrucitons: " + segmentInstructions);
             Console.WriteLine("* Duration: " + s.duration + " sec");
             Console.WriteLine("* Distance: " + s.distance + " m");
 

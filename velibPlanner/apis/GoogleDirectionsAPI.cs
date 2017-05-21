@@ -103,7 +103,7 @@ namespace velibPlanner
             Route ret;
             XmlDocument rawRoute = requestRoute(current, destination, transportMode);
 
-            ret = new Route(1.33, generateSegments(rawRoute));
+            ret = new Route(generateSegments(rawRoute));
 
             return ret;
         
