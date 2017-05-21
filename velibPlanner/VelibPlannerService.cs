@@ -18,7 +18,7 @@ namespace velibPlanner
         /* Initialize the route computer. */
         private RouteComputer routeComputer = new RouteComputer(new GoogleDirectionsAPI(), new VelibAPI());
 
-        public Route ComputeRoute(Location current, Location destination, Mock m)
+        public Route ComputeRoute(Location current, Location destination)
         {
             return routeComputer.computeRoute(current, destination);
         }

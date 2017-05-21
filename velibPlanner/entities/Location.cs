@@ -12,10 +12,10 @@ namespace velibPlanner
     {
         /* Value of the latitude. */
         [DataMember]
-        private double latitude;
+        public double latitude;
         /* Value of the longitude. */
         [DataMember]
-        private double longitude;
+        public double longitude;
 
         /**
          * Create a location from latitude and longitude.

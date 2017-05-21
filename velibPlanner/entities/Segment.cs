@@ -14,17 +14,17 @@ namespace velibPlanner.entities
         public static String CYCLING_MODE = "bicycling";
 
         [DataMember]
-        private Location source;
+        public Location source;
         [DataMember]
-        private Location destination;
+        public Location destination;
         [DataMember]
-        private double duration;
+        public double duration;
         [DataMember]
-        private double distance;
+        public double distance;
         [DataMember]
-        private String transportMode;
+        public String transportMode;
         [DataMember]
-        private String instructions;
+        public String instructions;
 
         public Segment(Location source, Location destination, double duration, double distance, String transportMode, String instructions)
         {
