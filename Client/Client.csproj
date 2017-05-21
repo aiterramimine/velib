@@ -60,6 +60,9 @@
     <None Include="Connected Services\ServiceReference1\Client.ServiceReference1.Route.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReference1\Client.ServiceReference1.VelibStation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\service.wsdl" />
     <None Include="Connected Services\ServiceReference1\service.xsd">
       <SubType>Designer</SubType>

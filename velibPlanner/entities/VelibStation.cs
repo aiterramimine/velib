@@ -20,8 +20,11 @@ namespace velibPlanner
         /* Number of available vehicles in the station. */
         [DataMember]
         private int availableVehicles;
+        /* Free sports where to put a vheicle. */
+        [DataMember]
+        private int free;
 
-        public VelibStation(String name, Location location, int availableVehicles)
+        public VelibStation(String name, Location location, int availableVehicles, int free)
         {
             this.name = name;
             this.location = location;
@@ -50,6 +53,14 @@ namespace velibPlanner
         public bool isVehicleAvailable()
         {
             return availableVehicles > 0;
+        }
+
+        /**
+         * Returns true if there is a free spot where to connect a vehicle.
+         */
+        public bool isFreeAvailable()
+        {
+            return free > 0;
         }
     }
 }

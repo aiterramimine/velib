@@ -15,5 +15,8 @@ namespace velibPlanner
 
         [OperationContract]
         Route anotherRoute();
+
+        [OperationContract]
+        List<VelibStation> getVelibStations();
     }
 }

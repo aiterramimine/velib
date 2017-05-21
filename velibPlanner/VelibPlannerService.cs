@@ -28,5 +28,10 @@ namespace velibPlanner
             return null;
         }
 
+        public List<VelibStation> getVelibStations()
+        {
+            return routeComputer.getVelibStations();
+        }
+
     }
 }

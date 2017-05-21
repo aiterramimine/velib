@@ -17,4 +17,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Route" nillable="true" type="tns:Route" />
+  <xs:complexType name="ArrayOfVelibStation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VelibStation" nillable="true" type="tns:VelibStation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVelibStation" nillable="true" type="tns:ArrayOfVelibStation" />
+  <xs:complexType name="VelibStation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="availableVehicles" type="xs:int" />
+      <xs:element minOccurs="0" name="free" type="xs:int" />
+      <xs:element minOccurs="0" name="location" nillable="true" type="tns:Location" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VelibStation" nillable="true" type="tns:VelibStation" />
 </xs:schema>

@@ -276,6 +276,99 @@ namespace Client.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VelibStation", Namespace="http://schemas.datacontract.org/2004/07/velibPlanner")]
+    [System.SerializableAttribute()]
+    public partial class VelibStation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int availableVehiclesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int freeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Client.ServiceReference1.Location locationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int availableVehicles {
+            get {
+                return this.availableVehiclesField;
+            }
+            set {
+                if ((this.availableVehiclesField.Equals(value) != true)) {
+                    this.availableVehiclesField = value;
+                    this.RaisePropertyChanged("availableVehicles");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int free {
+            get {
+                return this.freeField;
+            }
+            set {
+                if ((this.freeField.Equals(value) != true)) {
+                    this.freeField = value;
+                    this.RaisePropertyChanged("free");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Client.ServiceReference1.Location location {
+            get {
+                return this.locationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.locationField, value) != true)) {
+                    this.locationField = value;
+                    this.RaisePropertyChanged("location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IVelibPlannerService")]
     public interface IVelibPlannerService {
@@ -291,6 +384,12 @@ namespace Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/anotherRoute", ReplyAction="http://tempuri.org/IVelibPlannerService/anotherRouteResponse")]
         System.Threading.Tasks.Task<Client.ServiceReference1.Route> anotherRouteAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getVelibStations", ReplyAction="http://tempuri.org/IVelibPlannerService/getVelibStationsResponse")]
+        Client.ServiceReference1.VelibStation[] getVelibStations();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getVelibStations", ReplyAction="http://tempuri.org/IVelibPlannerService/getVelibStationsResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation[]> getVelibStationsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -334,6 +433,14 @@ namespace Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Client.ServiceReference1.Route> anotherRouteAsync() {
             return base.Channel.anotherRouteAsync();
+        }
+        
+        public Client.ServiceReference1.VelibStation[] getVelibStations() {
+            return base.Channel.getVelibStations();
+        }
+        
+        public System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation[]> getVelibStationsAsync() {
+            return base.Channel.getVelibStationsAsync();
         }
     }
 }

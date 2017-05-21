@@ -111,10 +111,10 @@ namespace Client
         public static void printRoute(Route r)
         {
             Console.WriteLine("ROUTE - Total duration : " + r.duration + " sec");
-            for (int i = 0; i <r.segments.Length; i++)
+            for (int i = 0; i < r.segments.Length; i++)
             {
                 Console.WriteLine("");
-                Console.WriteLine("Step---- ");
+                Console.WriteLine("Step--- ");
                 printSegment(r.segments[i]);
             }
 
@@ -127,7 +127,7 @@ namespace Client
 
             Regex reg = new Regex("<[^>]+>", RegexOptions.IgnoreCase);
             segmentInstructions = reg.Replace(segmentInstructions, "");
-            
+
             /* Console.WriteLine("* Source: " + s.source.latitude + "," + s.source.longitude);
             Console.WriteLine("* Destination: " + s.destination.latitude + "," + s.destination.longitude);*/
             Console.WriteLine("* Mode: " + s.transportMode);
@@ -135,6 +135,20 @@ namespace Client
             Console.WriteLine("* Duration: " + s.duration + " sec");
             Console.WriteLine("* Distance: " + s.distance + " m");
 
+        }
+
+        public static void printVelibStations(VelibStation[] stations)
+        {
+            Console.WriteLine("ALL VELIB STATIONS: ");
+            for (int i = 0; i < stations.Length; i++)
+            {
+                VelibStation currentStation = stations[i];
+
+                Console.WriteLine("");
+                Console.WriteLine("station--- " + currentStation.name);
+                Console.WriteLine("Availbale vehicles: " + currentStation.availableVehicles);
+                Console.WriteLine("Free spots: " + currentStation.free);
+            }
         }
     }
 }

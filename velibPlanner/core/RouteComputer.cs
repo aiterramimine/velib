@@ -98,5 +98,11 @@ namespace velibPlanner.core
         {
             return googleDirectionsAPI.computeRoute(current, destination, "walking");
         }
+
+        public List<VelibStation> getVelibStations()
+        {
+            return velibAPI.requestVelibStations();
+
+        }
     }
 }
