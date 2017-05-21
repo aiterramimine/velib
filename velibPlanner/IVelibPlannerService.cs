@@ -12,11 +12,5 @@ namespace velibPlanner
     {
         [OperationContract]
         Route ComputeRoute(Location current, Location destination);
-
-        [OperationContract]
-        Route anotherRoute();
-
-        [OperationContract]
-        VelibStation getNearestVelibStation(Location l);
     }
 }

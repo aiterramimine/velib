@@ -23,16 +23,6 @@ namespace velibPlanner
             return routeComputer.computeRoute(current, destination);
         }
 
-        public Route anotherRoute()
-        {
-            return null;
-        }
-
-        public VelibStation getNearestVelibStation(Location l)
-        {
-            return routeComputer.getNearestVeilbStationStation(l);
-            //return null;
-        }
 
     }
 }

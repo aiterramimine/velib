@@ -5,11 +5,6 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "velibPlanner", "velibPlanner\velibPlanner.csproj", "{32D3504E-6895-420C-BED2-2D373D197E43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{6A9A3CA1-6DD7-4C1F-A290-9963CB159C55}"
-	ProjectSection(ProjectDependencies) = postProject
-		{32D3504E-6895-420C-BED2-2D373D197E43} = {32D3504E-6895-420C-BED2-2D373D197E43}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{CE972B10-88AA-40E3-8BDC-7198629845BF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{32D3504E-6895-420C-BED2-2D373D197E43} = {32D3504E-6895-420C-BED2-2D373D197E43}
@@ -25,10 +20,6 @@ Global
 		{32D3504E-6895-420C-BED2-2D373D197E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D3504E-6895-420C-BED2-2D373D197E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D3504E-6895-420C-BED2-2D373D197E43}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6A9A3CA1-6DD7-4C1F-A290-9963CB159C55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A9A3CA1-6DD7-4C1F-A290-9963CB159C55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A9A3CA1-6DD7-4C1F-A290-9963CB159C55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A9A3CA1-6DD7-4C1F-A290-9963CB159C55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE972B10-88AA-40E3-8BDC-7198629845BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE972B10-88AA-40E3-8BDC-7198629845BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE972B10-88AA-40E3-8BDC-7198629845BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
