@@ -31,34 +31,25 @@ namespace Client
             destination.longitude = EGLISE_STNICOLAS_LONGITUDE;
 
             VelibPlannerServiceClient client = new VelibPlannerServiceClient();
-            /*Route r = client.ComputeRoute(source, destination);
-            printRoute(r);*/
-            //Console.WriteLine(client.getVelibStations().Length);
-            //printVelibStations(client.getVelibStations());
-            //48.8764198136411,2.3586300645446                                  Gare de l'est
+            
+            //48.8764198136411,2.3586300645446                                      Gare de l'est
             //48.875867,2.359228                                                    East side cofee
             //48.857091635218225,2.341747995157864                                  ile cité
             //48.855377, 2.345016                                                   Sainte chapelle
+
+            Console.WriteLine("--- Première démonstration qui consistes à se déplacer de East Side Coffee à Sainte Chapelle. ---");
+            Console.WriteLine("");
             Location eastSideCoffee = new Location();
             eastSideCoffee.latitude = 48.875867;
             eastSideCoffee.longitude = 2.359228;
+
             Location gareDeLEst = new Location();
             gareDeLEst.latitude = 48.855377;
             gareDeLEst.longitude = 2.345016;
-
-            /*Location loc = new Location();
-            loc.latitude = 48.875867;
-            loc.longitude = 2.359228;
-            VelibStation station = client.getNearestVelibStation(loc);*/
+            
             Route r = client.ComputeRoute(eastSideCoffee, gareDeLEst);
             printRoute(r);
-
-            //Console.WriteLine(r.segments[0].instructions);
-
-            /* XmlDocument doc = requestRoute(source, destination, "walking");
-            List<Segment> segs = generateSegments(doc);
-            Console.WriteLine(segs.Count);
-            Console.WriteLine(segs[0].instructions);*/
+            
 
         }
 
