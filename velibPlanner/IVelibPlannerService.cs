@@ -17,6 +17,6 @@ namespace velibPlanner
         Route anotherRoute();
 
         [OperationContract]
-        List<VelibStation> getVelibStations();
+        VelibStation getNearestVelibStation(Location l);
     }
 }

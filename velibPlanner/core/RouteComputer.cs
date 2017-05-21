@@ -35,11 +35,9 @@ namespace velibPlanner.core
         /**
         * Gets the nearest velib stations to the parameter location.
         */
-        private VelibStation getNearestVeilbStationStation(Location l)
+        public VelibStation getNearestVeilbStationStation(Location l, List<VelibStation> stations)
         {
-            List<VelibStation> stations = velibAPI.requestVelibStations();
-
-            VelibStation nearestStation = null;
+            VelibStation nearestStation = stations[0];
             double min = -1;
 
             for(int i = 0; i < stations.Count; i++)
@@ -59,7 +57,24 @@ namespace velibPlanner.core
                 }
             }
 
+            if (hasAvailableVehicle(nearestStation))
             return nearestStation;
+            else {
+                stations.Remove(nearestStation);
+                return getNearestVeilbStationStation(l, stations);
+            }
+        }
+
+        public VelibStation getNearestVeilbStationStation(Location l)
+        {
+            return getNearestVeilbStationStation(l, velibAPI.requestVelibStations());
+
+        }
+
+
+        private bool hasAvailableVehicle(VelibStation station) 
+        {
+            return velibAPI.getAvailableVehicles(station.number) > 0;
         }
 
         /**
@@ -72,15 +87,28 @@ namespace velibPlanner.core
 
         public Route computeRoute(Location current, Location destination)
         {
-            return googleDirectionsAPI.computeRoute(current, destination, "walking");
-            /*List<Segment> segs = new List<Segment>();
-            Location source = new Location(1, 2);
-            Location d = new Location(4, 5);
+            
+            /* Move by foot to the nearest station. */
+            List<Segment> toNearestStation = googleDirectionsAPI.generateSegments(current, getNearestVeilbStationStation(current).location, "walking");
+            /* Move by bicycle from the source station to the destination station. */
+            List<Segment> stationToStation = googleDirectionsAPI.generateSegments(getNearestVeilbStationStation(current).location, getNearestVeilbStationStation(destination).location, "bicycling");
+            /* Move by foot from the destination station to the destination.*/
+            List<Segment> toDestinationStation = googleDirectionsAPI.generateSegments(getNearestVeilbStationStation(destination).location, destination, "walking");
 
-            Segment s = new Segment(source, d, 1.22, 5, "walking", "instructs");
-            segs.Add(s);
+            /* Concatenate all the computed segments */
+            List<Segment> trajectTotal = new List<Segment>();
+            trajectTotal = trajectTotal.Concat(toNearestStation).ToList();
+            trajectTotal = trajectTotal.Concat(stationToStation).ToList();
+            trajectTotal = trajectTotal.Concat(toDestinationStation).ToList();
 
-            return new Route(1, segs);*/
+            /* Create the walking and cycling route from the concatenated segments. */
+            Route walkingAndCycling = new Route(trajectTotal);
+            /* Ask the google API for a route in which walking is the only transport mechanic from the source to the destination. */
+            Route walkingOnly = googleDirectionsAPI.computeRoute(current, destination, "walking");
+
+            /* Returns the route with the shortest duration. */
+            return walkingOnly.getDuration() >= walkingAndCycling.getDuration() ? walkingAndCycling : walkingOnly;
+            
         }
 
         /**
@@ -102,9 +130,10 @@ namespace velibPlanner.core
         public List<VelibStation> getVelibStations()
         {
             List<VelibStation> stations = new List<VelibStation>();
-            stations.Add(new VelibStation("name", new Location(0, 0), 0, 0));
-            return velibAPI.requestVelibStations();
+            //stations.Add(new VelibStation("name", new Location(0, 0), 0, 0));
+            //return velibAPI.requestVelibStations();
             //return stations;
+            return null;
 
         }
     }

@@ -297,6 +297,9 @@ namespace Client.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int numberField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -359,6 +362,19 @@ namespace Client.ServiceReference1 {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int number {
+            get {
+                return this.numberField;
+            }
+            set {
+                if ((this.numberField.Equals(value) != true)) {
+                    this.numberField = value;
+                    this.RaisePropertyChanged("number");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -385,11 +401,11 @@ namespace Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/anotherRoute", ReplyAction="http://tempuri.org/IVelibPlannerService/anotherRouteResponse")]
         System.Threading.Tasks.Task<Client.ServiceReference1.Route> anotherRouteAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getVelibStations", ReplyAction="http://tempuri.org/IVelibPlannerService/getVelibStationsResponse")]
-        Client.ServiceReference1.VelibStation[] getVelibStations();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getNearestVelibStation", ReplyAction="http://tempuri.org/IVelibPlannerService/getNearestVelibStationResponse")]
+        Client.ServiceReference1.VelibStation getNearestVelibStation(Client.ServiceReference1.Location l);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getVelibStations", ReplyAction="http://tempuri.org/IVelibPlannerService/getVelibStationsResponse")]
-        System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation[]> getVelibStationsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVelibPlannerService/getNearestVelibStation", ReplyAction="http://tempuri.org/IVelibPlannerService/getNearestVelibStationResponse")]
+        System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation> getNearestVelibStationAsync(Client.ServiceReference1.Location l);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -435,12 +451,12 @@ namespace Client.ServiceReference1 {
             return base.Channel.anotherRouteAsync();
         }
         
-        public Client.ServiceReference1.VelibStation[] getVelibStations() {
-            return base.Channel.getVelibStations();
+        public Client.ServiceReference1.VelibStation getNearestVelibStation(Client.ServiceReference1.Location l) {
+            return base.Channel.getNearestVelibStation(l);
         }
         
-        public System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation[]> getVelibStationsAsync() {
-            return base.Channel.getVelibStationsAsync();
+        public System.Threading.Tasks.Task<Client.ServiceReference1.VelibStation> getNearestVelibStationAsync(Client.ServiceReference1.Location l) {
+            return base.Channel.getNearestVelibStationAsync(l);
         }
     }
 }

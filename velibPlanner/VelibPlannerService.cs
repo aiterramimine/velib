@@ -28,16 +28,10 @@ namespace velibPlanner
             return null;
         }
 
-        public List<VelibStation> getVelibStations()
+        public VelibStation getNearestVelibStation(Location l)
         {
-            List<VelibStation> stations = routeComputer.getVelibStations();
-            List<VelibStation> ret = new List<VelibStation>();
-
-            for(int i = 0; i < stations.Count && i < 10; i++)
-            {
-                ret.Add(stations[i]);
-            }
-            return ret;
+            return routeComputer.getNearestVeilbStationStation(l);
+            //return null;
         }
 
     }

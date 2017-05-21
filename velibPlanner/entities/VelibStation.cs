@@ -13,22 +13,25 @@ namespace velibPlanner
         
         /* The name of the station. */
         [DataMember]
-        private String name;
+        public String name;
         /* The location of the station. */
         [DataMember]
-        private Location location;
+        public Location location;
+        [DataMember]
+        public int number;
         /* Number of available vehicles in the station. */
         [DataMember]
-        private int availableVehicles;
+        public int availableVehicles;
         /* Free sports where to put a vheicle. */
         [DataMember]
-        private int free;
+        public int free;
 
-        public VelibStation(String name, Location location, int availableVehicles, int free)
+        public VelibStation(String name, Location location, int number, int availableVehicles, int free)
         {
             this.name = name;
             this.location = location;
             this.availableVehicles = availableVehicles;
+            this.number = number;
         }
 
         /**

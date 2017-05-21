@@ -139,7 +139,7 @@ namespace velibPlanner
             return ret;
         }
 
-        private List<Segment> generateSegments(Location current, Location destination, String transportMode)
+        public List<Segment> generateSegments(Location current, Location destination, String transportMode)
         {
             List<Segment> ret = new List<Segment>();
             XmlDocument rawRoute = requestChart(current, destination, transportMode);

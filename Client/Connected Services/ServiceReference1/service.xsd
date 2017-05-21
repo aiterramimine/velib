@@ -28,15 +28,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="getVelibStations">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getVelibStationsResponse">
+  <xs:element name="getNearestVelibStation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/velibPlanner" minOccurs="0" name="getVelibStationsResult" nillable="true" type="q5:ArrayOfVelibStation" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/velibPlanner" minOccurs="0" name="l" nillable="true" type="q5:Location" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestVelibStationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/velibPlanner" minOccurs="0" name="getNearestVelibStationResult" nillable="true" type="q6:VelibStation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

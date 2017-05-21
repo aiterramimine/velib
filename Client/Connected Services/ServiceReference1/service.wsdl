@@ -21,11 +21,11 @@
   <wsdl:message name="IVelibPlannerService_anotherRoute_OutputMessage">
     <wsdl:part name="parameters" element="tns:anotherRouteResponse" />
   </wsdl:message>
-  <wsdl:message name="IVelibPlannerService_getVelibStations_InputMessage">
-    <wsdl:part name="parameters" element="tns:getVelibStations" />
+  <wsdl:message name="IVelibPlannerService_getNearestVelibStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNearestVelibStation" />
   </wsdl:message>
-  <wsdl:message name="IVelibPlannerService_getVelibStations_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getVelibStationsResponse" />
+  <wsdl:message name="IVelibPlannerService_getNearestVelibStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNearestVelibStationResponse" />
   </wsdl:message>
   <wsdl:portType name="IVelibPlannerService">
     <wsdl:operation name="ComputeRoute">
@@ -36,9 +36,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IVelibPlannerService/anotherRoute" message="tns:IVelibPlannerService_anotherRoute_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IVelibPlannerService/anotherRouteResponse" message="tns:IVelibPlannerService_anotherRoute_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getVelibStations">
-      <wsdl:input wsaw:Action="http://tempuri.org/IVelibPlannerService/getVelibStations" message="tns:IVelibPlannerService_getVelibStations_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IVelibPlannerService/getVelibStationsResponse" message="tns:IVelibPlannerService_getVelibStations_OutputMessage" />
+    <wsdl:operation name="getNearestVelibStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVelibPlannerService/getNearestVelibStation" message="tns:IVelibPlannerService_getNearestVelibStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVelibPlannerService/getNearestVelibStationResponse" message="tns:IVelibPlannerService_getNearestVelibStation_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IVelibPlannerService" type="tns:IVelibPlannerService">
@@ -61,8 +61,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getVelibStations">
-      <soap:operation soapAction="http://tempuri.org/IVelibPlannerService/getVelibStations" style="document" />
+    <wsdl:operation name="getNearestVelibStation">
+      <soap:operation soapAction="http://tempuri.org/IVelibPlannerService/getNearestVelibStation" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

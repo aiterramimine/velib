@@ -35,7 +35,7 @@ namespace velibPlanner
                 double latitude = Convert.ToDouble(markers[i].Attributes["lat"].Value);
                 double longitude = Convert.ToDouble(markers[i].Attributes["lng"].Value);
                 int stationNb = int.Parse(markers[i].Attributes["number"].Value);
-
+                
                 Location location = new Location(latitude, longitude);
 
 
@@ -43,7 +43,7 @@ namespace velibPlanner
                 /*int availableVehicles = getAvailableVehicles(stationChart);
                 int freeSpots = getFreeSpots(stationChart);*/
 
-               VelibStation station = new VelibStation(name, location, 0, 0);
+               VelibStation station = new VelibStation(name, location, stationNb, 0, 0);
 
                ret.Add(station);
             }
@@ -81,17 +81,19 @@ namespace velibPlanner
         /**
          * Gets the number of available vehicles from the xml chart of the station.
          */
-        private int getAvailableVehicles(XmlDocument stationChart)
+        public int getAvailableVehicles(int stationNumber)
         {
-            stationChart.GetElementsByTagName("availbale");
+           // XmlDocument stationChart = requestStationChart(stationNumber);
+            //stationChart.GetElementsByTagName("availbale");
 
-            return int.Parse(stationChart.GetElementsByTagName("availbale")[0].InnerText);
+            //return int.Parse(stationChart.GetElementsByTagName("availbale")[0].InnerText);
+            return 1;
         }
 
         /**
          * Gets the number of free spots on the station from the chart of the xml station.
          */
-        private int getFreeSpots(XmlDocument stationChart)
+        public int getFreeSpots(XmlDocument stationChart)
         {
             return int.Parse(stationChart.GetElementsByTagName("free")[0].InnerText);
         }
@@ -113,5 +115,6 @@ namespace velibPlanner
 
             return null;
         }
+
     }
 }
